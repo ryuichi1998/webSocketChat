@@ -32,7 +32,7 @@ public class chat {
         System.out.println(session.getOpenSessions().size());
         for (Session s: allSessions) {
             try{
-                String msg = (String)session.getUserProperties().get("id") + " >> " + txt;
+                String msg = (String) "<p style='font-weight: bold; font-color: lightblue;'>"+ session.getUserProperties().get("id") + " >> " + txt + "</p>";
                 s.getBasicRemote().sendText(msg);
                 System.out.println("Sent : " + msg);
             } catch (IOException ioe) {
@@ -49,7 +49,7 @@ public class chat {
 
     }
 
-    
+
     public void getAllConnectedUsers(@PathParam("id") String id, Session session){
         session.getUserProperties().put("id", id);
         allSessions.add(session);
